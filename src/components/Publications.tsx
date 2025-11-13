@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { FileText, ExternalLink } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Publications = () => {
   const publications = [
@@ -25,29 +26,37 @@ const Publications = () => {
         </h2>
         <div className="grid md:grid-cols-2 gap-6">
           {publications.map((pub, index) => (
-            <Card key={index} className="p-6 bg-card border-border shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-secondary/30 rounded-lg">
-                  <FileText className="w-6 h-6 text-secondary-foreground" />
+            <motion.div
+              key={index}
+              initial={{ x: index % 2 === 0 ? -50 : 50, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+            >
+              <Card className="p-6 bg-card border-border shadow-sm hover:shadow-md transition-shadow">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-secondary/30 rounded-lg">
+                    <FileText className="w-6 h-6 text-secondary-foreground" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-xs font-medium text-primary mb-1">{pub.type}</p>
+                    <h3 className="text-base font-semibold text-foreground mb-2">{pub.title}</h3>
+                    <p className="text-sm text-muted-foreground mb-3">{pub.publisher}</p>
+                    {pub.link && (
+                      <a
+                        href={pub.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
+                      >
+                        View Publication
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
+                    )}
+                  </div>
                 </div>
-                <div className="flex-1">
-                  <p className="text-xs font-medium text-primary mb-1">{pub.type}</p>
-                  <h3 className="text-base font-semibold text-foreground mb-2">{pub.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-3">{pub.publisher}</p>
-                  {pub.link && (
-                    <a
-                      href={pub.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
-                    >
-                      View Publication
-                      <ExternalLink className="w-3 h-3" />
-                    </a>
-                  )}
-                </div>
-              </div>
-            </Card>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </div>

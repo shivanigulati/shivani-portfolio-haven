@@ -1,8 +1,27 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowUp, Briefcase } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Experience = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.5 }
+    }
+  };
   const experiences = [
     {
       title: "SOFTWARE ENGINEER IN AI PROJECT",
@@ -68,7 +87,13 @@ const Experience = () => {
         </div>
         
         {/* Career Progression Timeline */}
-        <div className="flex items-center justify-center gap-2 mb-12 flex-wrap">
+        <motion.div 
+          initial={{ scale: 0.8, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex items-center justify-center gap-2 mb-12 flex-wrap"
+        >
           <div className="flex items-center gap-2 px-4 py-2 bg-secondary rounded-lg border-2 border-primary">
             <span className="text-sm font-semibold text-foreground">Intern</span>
           </div>
@@ -84,11 +109,18 @@ const Experience = () => {
           <div className="flex items-center gap-2 px-4 py-2 bg-primary rounded-lg border-2 border-primary">
             <span className="text-sm font-semibold text-foreground">AI Engineer</span>
           </div>
-        </div>
+        </motion.div>
         
-        <div className="space-y-6">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="space-y-6"
+        >
           {experiences.map((exp, index) => (
-            <Card key={index} className="p-6 bg-card border-border shadow-sm hover:shadow-md transition-shadow">
+            <motion.div key={index} variants={itemVariants}>
+              <Card className="p-6 bg-card border-border shadow-sm hover:shadow-md transition-shadow">
               <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4 gap-2">
                 <div>
                   <h3 className="text-xl font-semibold text-foreground">{exp.title}</h3>
@@ -110,10 +142,11 @@ const Experience = () => {
                     <span>{highlight}</span>
                   </li>
                 ))}
-              </ul>
-            </Card>
+                </ul>
+              </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
