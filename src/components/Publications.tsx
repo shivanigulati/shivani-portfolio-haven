@@ -40,14 +40,14 @@ const Publications = () => {
                   </div>
                   <div className="flex-1">
                     <p className="text-xs font-medium text-primary mb-1">{pub.type}</p>
-                    <h3 className="text-base font-semibold text-foreground mb-2">{pub.title}</h3>
+                    <h3 className="text-xl font-bold text-foreground mb-2 leading-snug font-sans">{pub.title}</h3>
                     <p className="text-sm text-muted-foreground mb-3">{pub.publisher}</p>
                     {pub.link && (
                       <a
                         href={pub.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
+                        className="inline-flex items-center gap-1 text-sm text-blue-600 hover:text-blue-800 hover:underline"
                       >
                         View Publication
                         <ExternalLink className="w-3 h-3" />
