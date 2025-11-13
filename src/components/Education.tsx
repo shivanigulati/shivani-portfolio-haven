@@ -43,7 +43,7 @@ const Education = () => {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-lg font-semibold text-foreground mb-1">{edu.degree}</h3>
-                  <p className="text-sm text-primary font-medium mb-2">{edu.year}</p>
+                  <p className="text-sm font-semibold text-black mb-2">{edu.year}</p>
                   <p className="text-sm text-muted-foreground">{edu.institution}</p>
                 </div>
               </div>
