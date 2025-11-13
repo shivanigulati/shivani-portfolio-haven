@@ -20,7 +20,10 @@ const Skills = () => {
     "React": "⚛️",
     "NodeJS": "🟢",
     "TensorFlow": "🧠",
-    "PyTorch": "🔥"
+    "PyTorch": "🔥",
+    "Docker": "🐳",
+    "AWS": "☁️",
+    "Kafka": "📨"
   };
   const skills = [
     {
@@ -33,7 +36,11 @@ const Skills = () => {
     },
     {
       category: "Services",
-      items: "Rest API, Web Socket, JBoss",
+      items: "Rest API, Web Socket, JBoss, Kafka",
+    },
+    {
+      category: "Cloud & DevOps",
+      items: "AWS, Docker",
     },
     {
       category: "Code Review/Coverage Tools",
