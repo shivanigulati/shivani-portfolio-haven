@@ -126,7 +126,7 @@ const Experience = () => {
                   <h3 className="text-xl font-semibold text-foreground">{exp.title}</h3>
                   <p className="text-sm text-muted-foreground">{exp.company}</p>
                 </div>
-                <span className="text-sm font-medium text-primary">{exp.period}</span>
+                <span className="text-sm font-semibold text-black whitespace-nowrap">{exp.period}</span>
               </div>
               <div className="flex flex-wrap gap-2 mb-4">
                 {exp.technologies.map((tech, techIndex) => (
