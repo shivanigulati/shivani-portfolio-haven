@@ -1,0 +1,94 @@
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+
+const Experience = () => {
+  const experiences = [
+    {
+      title: "SOFTWARE ENGINEER IN AI PROJECT",
+      period: "MARCH 2024 - CURRENT",
+      company: "WABTEC CORPORATION",
+      technologies: ["Python", "NLP", "BERT"],
+      highlights: [
+        "Formed and led an AI team to introduce AI capabilities into the product",
+        "Developed a proof of concept to enhance user experience by implementing a voice command feature using the Hugging Face library, Transformers, PyTorch, and Google Colab notebooks",
+        "Collaborated with developers to integrate the voice command feature, making the product more user-friendly",
+        "Released version 1 of its Documentation",
+      ],
+    },
+    {
+      title: "SOFTWARE ENGINEER",
+      period: "JUNE 2023 - CURRENT",
+      company: "WABTEC CORPORATION",
+      technologies: ["C++", "Java"],
+      highlights: [
+        "Creation of Train schedules, Authorities for the train, Trip Plan Information, Engine Consist, Bulletin Generation, etc. for Train Dispatcher UI",
+        "Contributing to pushing back data to the database, creating/modifying the data, and then sending it to UI",
+        "Hands-on with Oracle database programming and tuning of SQL queries",
+        "Peer reviewer for the code ensuring code quality and adherence to best practices",
+        "Managing the full software development lifecycle from requirement gathering to deployment & maintenance",
+      ],
+    },
+    {
+      title: "SOFTWARE ENGINEERING SPECIALIST",
+      period: "JULY 2021 - JUNE 2023",
+      company: "WABTEC CORPORATION",
+      technologies: ["C++"],
+      highlights: [
+        "Analyzing requirements and Input Gathering",
+        "Translating Requirements and Functional Designs into technical design in Confluence and XWIKI",
+        "Coding, Unit Testing, and Documentation",
+        "KT sessions for New Joiners",
+        "Smooth Hanover to Quality Assurance Team",
+      ],
+    },
+    {
+      title: "INTERN - CSE DEVELOPER",
+      period: "JAN 2021 - JULY 2021",
+      company: "WABTEC CORPORATION",
+      technologies: ["HTML", "CSS", "JavaScript", "Angular", "NodeJS", "Paper JS", "TypeScript"],
+      highlights: [
+        "Developed and enhanced Track Line Display (TLD) and implemented the functionality of real-time annotation and note creation",
+        "Created a PaperJs Unit Testing framework and achieved over 95% code coverage with over 100-unit test cases",
+        "Proficient in using SonarQube and Karma tools to identify and fix code smells, bugs, and vulnerabilities",
+      ],
+    },
+  ];
+
+  return (
+    <section className="py-16 px-6 bg-muted/30">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Experience</h2>
+        <div className="space-y-6">
+          {experiences.map((exp, index) => (
+            <Card key={index} className="p-6 bg-card border-border shadow-sm hover:shadow-md transition-shadow">
+              <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4 gap-2">
+                <div>
+                  <h3 className="text-xl font-semibold text-foreground">{exp.title}</h3>
+                  <p className="text-sm text-muted-foreground">{exp.company}</p>
+                </div>
+                <span className="text-sm font-medium text-primary">{exp.period}</span>
+              </div>
+              <div className="flex flex-wrap gap-2 mb-4">
+                {exp.technologies.map((tech, techIndex) => (
+                  <Badge key={techIndex} variant="secondary" className="text-xs">
+                    {tech}
+                  </Badge>
+                ))}
+              </div>
+              <ul className="space-y-2">
+                {exp.highlights.map((highlight, highlightIndex) => (
+                  <li key={highlightIndex} className="text-sm text-foreground flex items-start">
+                    <span className="text-primary mr-2">•</span>
+                    <span>{highlight}</span>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Experience;
