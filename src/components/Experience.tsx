@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { ArrowUp, Briefcase } from "lucide-react";
 
 const Experience = () => {
   const experiences = [
@@ -55,9 +56,36 @@ const Experience = () => {
   ];
 
   return (
-    <section className="py-16 px-6 bg-muted/30">
+    <section className="py-16 px-6 bg-muted/30 relative">
+      <div className="absolute left-1/2 top-0 bottom-0 w-px bg-border hidden lg:block" />
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Experience</h2>
+        <div className="flex items-center justify-center gap-3 mb-8">
+          <div className="h-px w-16 bg-primary" />
+          <Briefcase className="w-8 h-8 text-primary" />
+          <h2 className="text-3xl font-bold text-foreground">Career Journey</h2>
+          <Briefcase className="w-8 h-8 text-primary" />
+          <div className="h-px w-16 bg-primary" />
+        </div>
+        
+        {/* Career Progression Timeline */}
+        <div className="flex items-center justify-center gap-2 mb-12 flex-wrap">
+          <div className="flex items-center gap-2 px-4 py-2 bg-secondary rounded-lg border-2 border-primary">
+            <span className="text-sm font-semibold text-foreground">Intern</span>
+          </div>
+          <ArrowUp className="w-5 h-5 text-primary rotate-90" />
+          <div className="flex items-center gap-2 px-4 py-2 bg-secondary rounded-lg border-2 border-primary">
+            <span className="text-sm font-semibold text-foreground">Specialist</span>
+          </div>
+          <ArrowUp className="w-5 h-5 text-primary rotate-90" />
+          <div className="flex items-center gap-2 px-4 py-2 bg-secondary rounded-lg border-2 border-primary">
+            <span className="text-sm font-semibold text-foreground">Software Engineer</span>
+          </div>
+          <ArrowUp className="w-5 h-5 text-primary rotate-90" />
+          <div className="flex items-center gap-2 px-4 py-2 bg-primary rounded-lg border-2 border-primary">
+            <span className="text-sm font-semibold text-foreground">AI Engineer</span>
+          </div>
+        </div>
+        
         <div className="space-y-6">
           {experiences.map((exp, index) => (
             <Card key={index} className="p-6 bg-card border-border shadow-sm hover:shadow-md transition-shadow">
