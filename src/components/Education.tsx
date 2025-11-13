@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { GraduationCap } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Education = () => {
   const education = [
@@ -27,7 +28,14 @@ const Education = () => {
         </div>
         <div className="grid md:grid-cols-2 gap-6">
           {education.map((edu, index) => (
-            <Card key={index} className="p-6 bg-card border-2 border-primary shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
+            <motion.div
+              key={index}
+              initial={{ x: index === 0 ? -50 : 50, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+            >
+              <Card className="p-6 bg-card border-2 border-primary shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full" />
               <div className="flex items-start gap-4 relative z-10">
                 <div className="p-3 bg-primary rounded-lg border-2 border-primary">
@@ -40,6 +48,7 @@ const Education = () => {
                 </div>
               </div>
             </Card>
+            </motion.div>
           ))}
         </div>
       </div>

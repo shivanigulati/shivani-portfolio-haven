@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Code2 } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Projects = () => {
   const projects = [
@@ -36,22 +37,31 @@ const Projects = () => {
         <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Projects</h2>
         <div className="grid md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
-            <Card key={index} className="p-6 bg-card border-border shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="p-2 bg-accent/50 rounded-lg">
-                  <Code2 className="w-5 h-5 text-accent-foreground" />
+            <motion.div
+              key={index}
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -5 }}
+            >
+              <Card className="p-6 bg-card border-border shadow-sm hover:shadow-md transition-shadow h-full">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="p-2 bg-accent/50 rounded-lg">
+                    <Code2 className="w-5 h-5 text-accent-foreground" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-foreground flex-1">{project.title}</h3>
                 </div>
-                <h3 className="text-lg font-semibold text-foreground flex-1">{project.title}</h3>
-              </div>
-              <div className="flex flex-wrap gap-2 mb-3">
-                {project.tech.map((tech, techIndex) => (
-                  <Badge key={techIndex} variant="outline" className="text-xs">
-                    {tech}
-                  </Badge>
-                ))}
-              </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">{project.description}</p>
-            </Card>
+                <div className="flex flex-wrap gap-2 mb-3">
+                  {project.tech.map((tech, techIndex) => (
+                    <Badge key={techIndex} variant="outline" className="text-xs">
+                      {tech}
+                    </Badge>
+                  ))}
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">{project.description}</p>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </div>
