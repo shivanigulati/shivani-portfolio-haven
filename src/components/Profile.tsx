@@ -2,9 +2,9 @@ import { Card } from "@/components/ui/card";
 
 const Profile = () => {
   return (
-    <section className="py-16 px-6">
+    <section className="py-6 px-6">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Profile</h2>
+        <h2 className="text-3xl font-bold text-foreground mb-6 text-center">Profile</h2>
         <Card className="p-8 bg-card border-border shadow-sm hover:shadow-md transition-shadow">
           <p className="text-foreground leading-relaxed text-center md:text-left">
             I am an academically qualified Artificial Intelligence student and an enthusiast deeply entrenched 
